@@ -124,7 +124,7 @@ CREATE TABLE IF NOT EXISTS __PREFIX__payment_link (
     pl_id VARCHAR(755) DEFAULT '--',
     pl_name VARCHAR(255) DEFAULT '--',
     pl_quantity VARCHAR(255) DEFAULT '--',
-    pl_description VARCHAR(255) DEFAULT '--',
+    pl_description VARCHAR(700) DEFAULT '--',
     pl_currency VARCHAR(255) DEFAULT '--',
     pl_amount VARCHAR(255) DEFAULT '--',
     pl_expiry_date VARCHAR(255) DEFAULT '--',

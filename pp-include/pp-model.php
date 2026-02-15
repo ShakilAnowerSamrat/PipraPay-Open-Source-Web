@@ -1677,6 +1677,11 @@
                 $pl_expiry = escape_string($_POST['payment-link-expiry']);
                 $pl_status = escape_string($_POST['payment-link-status']);
 
+                // Validate description length
+                if (strlen($pl_description) > 700) {
+                    echo json_encode(['status' => "false", 'message' => 'Product description exceeds maximum length of 700 characters. Current length: ' . strlen($pl_description) . ' characters.']);
+                    exit();
+                }
 
                 if (preg_match('/\((.*?)\)/', $pl_currency, $matches)) {
                     $pl_currency = $matches[1]; // Found in parentheses

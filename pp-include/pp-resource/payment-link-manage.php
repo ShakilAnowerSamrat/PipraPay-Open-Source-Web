@@ -109,8 +109,9 @@
                           
                           <div class="col-sm-12 mb-3">
                               <div class="col-md-12">
-                                <label for="payment-link-product-description" class="form-label">Product description</label>
-                                <textarea class="form-control" id="payment-link-product-description" name="payment-link-product-description" rows="4"><?php if(isset($response_payment_link_checker['response'][0]['pl_description'])){ echo str_replace("\\", "", $response_payment_link_checker['response'][0]['pl_description']);}?></textarea>
+                                <label for="payment-link-product-description" class="form-label">Product description <small class="text-muted">(Max 700 characters)</small></label>
+                                <textarea class="form-control" id="payment-link-product-description" name="payment-link-product-description" rows="4" maxlength="700"><?php if(isset($response_payment_link_checker['response'][0]['pl_description'])){ echo str_replace("\\", "", $response_payment_link_checker['response'][0]['pl_description']);}?></textarea>
+                                <small class="form-text text-muted mt-2 d-block"><span id="char-count">0</span>/700 characters</small>
                               </div>
                           </div>
     
@@ -240,6 +241,20 @@
             <!-- End Row -->
         </form>
         <script> 
+            // Character counter for description field
+            const descriptionTextarea = document.getElementById('payment-link-product-description');
+            const charCountDisplay = document.getElementById('char-count');
+            
+            if (descriptionTextarea) {
+                // Update on input
+                descriptionTextarea.addEventListener('input', function() {
+                    charCountDisplay.textContent = this.value.length;
+                });
+                
+                // Initialize on page load
+                charCountDisplay.textContent = descriptionTextarea.value.length;
+            }
+            
             <?php 
                if(isset($response_payment_link_checker['response'][0]['pl_id'])){
             ?>
