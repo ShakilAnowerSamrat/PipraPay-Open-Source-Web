@@ -1,0 +1,6 @@
+{
+  "type": "plugins",
+  "slug": "midtrans",
+  "name": "midtrans",
+  "mrdr": "payment-gateway"
+}

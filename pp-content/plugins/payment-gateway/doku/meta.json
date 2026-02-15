@@ -1,0 +1,6 @@
+{
+  "type": "plugins",
+  "slug": "doku",
+  "name": "doku",
+  "mrdr": "payment-gateway"
+}
